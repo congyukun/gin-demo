@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/github.com/Knetic/govaluate" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/github.com/OwnLocal/goes" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/github.com/astaxie/beego" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/github.com/beego/bee" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/github.com/beego/goyaml2" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/github.com/beego/x2j" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/github.com/bradfitz/gomemcache" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/github.com/casbin/casbin" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/github.com/cloudflare/golz4" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/github.com/couchbase/go-couchbase" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/github.com/couchbase/gomemcached" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/github.com/couchbase/goutils" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/github.com/elazarl/go-bindata-assetfs" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/github.com/go-redis/redis" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/github.com/go-sql-driver/mysql" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/github.com/gogo/protobuf" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/github.com/gomodule/redigo" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/github.com/lib/pq" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/github.com/mattn/go-sqlite3" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/github.com/pkg/errors" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/github.com/shiena/ansicolor" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/github.com/siddontang/ledisdb" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/github.com/ssdb/gossdb" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/github.com/wendal/errors" vcs="Git" />
+  </component>
+</project>
