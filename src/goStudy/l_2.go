@@ -2,9 +2,29 @@ package main
 
 import(
 	"fmt"
+	"math/rand"    //引入了 就得用    
+	"time"
 )
 
 func main()  {
+	
+	/*rand.Seed(time.Now().Unix())    //定义随机数
+	n := rand.Intn(10)            //生成随机数
+	fmt.Println("n= ",n)  
+	times := time.Now()				//时间函数
+	fmt.Println("times = ",times) */
+
+	var i int = 0;
+	for{			////////   ^-^    相当于do while
+		rand.Seed(time.Now().Unix())    //定义随机数
+		n := rand.Intn(10) 
+		i++
+		if n==8 {
+			fmt.Println("终于到8")
+			break;
+		}
+	}
+	fmt.Printf("执行了 %v 次 ",i)
 	
 }
 

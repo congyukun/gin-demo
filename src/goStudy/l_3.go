@@ -8,28 +8,28 @@ import (
 func main(){
 	var a int 
 	var b int
-	var fuhao byte = '+'
+	var fuhao string 
 	fmt.Printf("请输入 a b 符号: \n")
-	fmt.Scanf("%v %v",&a,&b)
-	fmt.Printf("a=%v b=%v \n",a,b)
+	/*fmt.Scanf("%v %v",&a,&b)
+	fmt.Printf("a=%v b=%v \n",a,b)*/
 	
-	/*fmt.Scanf("%v %v %v",&a,&b,&fuhao)
+	fmt.Scanf("%v %v %v",&a,&b,&fuhao)
 	fmt.Printf("a=%v b=%v 符号是%v:",a,b,fuhao)
 	var res = result(a,b,fuhao)
 	fmt.Printf("值%v:",res)
-	*/
+	
 
-	var res = result(a,b,fuhao)
-	fmt.Printf("值%v:",res)
+	/*var res = result(a,b,fuhao)
+	fmt.Printf("值%v:",res)*/
 
 }
-func result(a int,b int,fuhao byte)int{
+func result(a int,b int,fuhao string)int{
 	var res int 
 	switch fuhao {
-		case '+': res = a+b 
-		case '-': res = a-b 
-		case '*': res = a*b 
-		case '/': res = a/b 
+		case "+": res = a+b 
+		case "-": res = a-b 
+		case "*": res = a*b 
+		case "/": res = a/b 
 		
 	}
 	return res
