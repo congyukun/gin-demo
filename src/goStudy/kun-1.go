@@ -2,12 +2,10 @@ package main
 
 import (
 	"fmt"
-	//"go/doc"
 )
 
-
 func main() {
-	fmt.Println(fbnq(400))
+	fmt.Println(fbnq(100))
 	//switchTh(10)
 	//foreach("ssss")
 	//var a string

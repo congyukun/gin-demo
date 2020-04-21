@@ -1,7 +1,6 @@
 package main
 import(
 	"fmt"
-	"Common/common"
 )
 
 func main(){
@@ -15,6 +14,6 @@ func main(){
 	fmt.Scanf("%v %v %v",&a,&b,&fuhao)
 	fmt.Printf("a=%v b=%v 符号是%v:",a,b,fuhao)
 	var res = common.Yunsuan(a,b,fuhao)
-	fmt.Printf("值%v:",$res)
+	fmt.Printf("值%v:",res)
 	
 }

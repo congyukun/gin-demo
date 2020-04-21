@@ -1,4 +1,4 @@
-package common
+package Common
 
 func Yunsuan(a int,b int ,fuhao string)int  {
 	
