@@ -10,3 +10,6 @@ func init()  {
 	test =2
 	fmt.Println("hhhh")
 }
+func A()  {
+	fmt.Println("hhhh")
+}
