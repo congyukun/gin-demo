@@ -131,7 +131,7 @@ func sums(num1 int,num2 int) (sum int, mul int)  {
 func testSwitch(a int) {
     switch a {
     case 1, 3:
-        fmt.Println("扬琴")
+        fmt.Println("one")
     case 2:
         fmt.Println("two")
     default:
