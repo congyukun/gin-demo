@@ -1,13 +1,14 @@
 package main
 import(
 	"fmt"
+	"common"
 )
 
 func main(){
 	var a int 
 	var b int
 	var fuhao string 
-	fmt.Printf("请输入 a b 符号: \n")
+	fmt.Printf("请输入 a b 符号是: \n")
 	/*fmt.Scanf("%v %v",&a,&b)
 	fmt.Printf("a=%v b=%v \n",a,b)*/
 	
