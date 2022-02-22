@@ -1,6 +1,0 @@
-gopub*
-data/*
-logs/*.log
-*.tar.gz
-*.bak
-.DS_Store
