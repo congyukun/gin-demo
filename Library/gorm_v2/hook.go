@@ -1,0 +1,56 @@
+package gorm_v2
+
+import (
+	"errors"
+	"gin_demo/app/global/my_errors"
+	"gin_demo/app/global/variable"
+	"gorm.io/gorm"
+	"reflect"
+	"time"
+)
+
+// 这里的函数都是gorm的hook函数，拦截一些官方认为标准提示，但是我们认为不合格的操作行为，提升项目整体的完美性
+
+// MaskNotDataError 解决gorm v2 包在查询无数据时，报错问题（record not found），但是官方认为报错是应该是，我们认为查询无数据，代码一切ok，不应该报错
+func MaskNotDataError(gormDB *gorm.DB) {
+	gormDB.Statement.RaiseErrorOnNotFound = false
+}
+
+// InterceptCreatePramsNotPtrError 拦截 create 函数参数如果是非指针类型的错误,新用户最容犯此错误
+
+func CreateBeforeHook(gormDB *gorm.DB) {
+	destValueOf := reflect.ValueOf(gormDB.Statement.Dest).Elem()
+	if reflect.TypeOf(gormDB.Statement.Dest).Kind() != reflect.Ptr {
+		_ = gormDB.AddError(errors.New(my_errors.ErrorsGormDBCreateParamsNotPtr))
+	} else if destValueOf.Type().Kind() == reflect.Slice || destValueOf.Type().Kind() == reflect.Array {
+		inLen := destValueOf.Len()
+		for i := 0; i < inLen; i++ {
+			row := destValueOf.Index(i)
+			if row.Type().Kind() == reflect.Struct {
+				row.FieldByName("CreatedAt").Set(reflect.ValueOf(time.Now().Format(variable.DateFormat)))
+				row.FieldByName("UpdatedAt").Set(reflect.ValueOf(time.Now().Format(variable.DateFormat)))
+			} else if row.Type().Kind() == reflect.Map {
+				row.SetMapIndex(reflect.ValueOf("created_at"), reflect.ValueOf(time.Now().Format(variable.DateFormat)))
+				row.SetMapIndex(reflect.ValueOf("updated_at"), reflect.ValueOf(time.Now().Format(variable.DateFormat)))
+			}
+		}
+	} else {
+		// 参数校验无错误自动设置 CreatedAt、 UpdatedAt
+		gormDB.Statement.SetColumn("created_at", time.Now().Format(variable.DateFormat))
+		gormDB.Statement.SetColumn("updated_at", time.Now().Format(variable.DateFormat))
+	}
+}
+
+// InterceptUpdatePramsNotPtrError 拦截 save、update 函数参数如果是非指针类型的错误
+// 对于开发者来说，以结构体形式更新数据，只需要在 update 、save 函数的参数前面添加 & 即可
+// 最终就可以完美兼支持、兼容 gorm 的所有回调函数
+// 但是如果是指定字段更新，例如： UpdateColumn 函数则只传递值即可，不需要做校验
+
+func UpdateBeforeHook(gormDB *gorm.DB) {
+	if reflect.TypeOf(gormDB.Statement.Dest).Kind() == reflect.Struct {
+		_ = gormDB.AddError(errors.New(my_errors.ErrorsGormDBUpdateParamsNotPtr))
+	} else {
+		// 参数校验无错误自动设置 UpdatedAt
+		gormDB.Statement.SetColumn("updated_at", time.Now().Format(variable.DateFormat))
+	}
+}
