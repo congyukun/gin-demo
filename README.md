@@ -3,7 +3,7 @@
 #### 介绍
 gin gorm demo
 这个demo，是本人从php转go，参考了一些项目源码 例如GinSkeleton 实现了个demo 如果有争议请联系我
-
+不断的学习，来完善这个项目。大家可以来沟通学习，指正
 
 
 
